@@ -4,4 +4,8 @@ class ClassifiedsController < ApplicationController
 
   end
 
+  def new
+    @classified = Classified.new
+  end
+
 end

@@ -7,22 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if user_signed_in? %>
-    <%= image_tag current_user.avatar.url(:thumb) %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <br>
-    <%= link_to 'Edit profile', edit_user_registration_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+  <div class="container">
+    <div id="user nav">
+      <div class="pull-right">
+        <% if user_signed_in? %>
+          <%= image_tag current_user.avatar.url(:medium) %>
+          Logged in as <strong><%= current_user.email %></strong>
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+  </div>
+
   <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
   <br>
 
   <%= yield %>
-
+</div>
 </body>
 </html>
