@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150831195427) do
   create_table "classifieds", force: :cascade do |t|
     t.string   "category"
     t.string   "subcategory"
-    t.float    "price"
+    t.float    "price"                    default: false
     t.boolean  "rate"
     t.string   "title"
     t.text     "description"
