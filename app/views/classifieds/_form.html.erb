@@ -1,7 +1,5 @@
-<h3>Create a new classified ad:</h3>
-
 <%= form_for @classified do |f| %>
-  <%= f.hidden_field :category, value: @category %>
+  <% f.hidden_field :category, value: params[:format] %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

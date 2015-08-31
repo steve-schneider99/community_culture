@@ -8,6 +8,7 @@ class ClassifiedsController < ApplicationController
 
   def new
     @classified = Classified.new
+    @category = params[:format]
   end
 
   def create
