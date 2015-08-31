@@ -35,6 +35,7 @@ class ClassifiedsController < ApplicationController
       redirect_to classified_path(classified)
     else
       flash[:alert] = "Error while submitting! Check values and try again."
+    end
   end
 
   def destroy
