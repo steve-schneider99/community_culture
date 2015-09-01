@@ -1,56 +1,58 @@
 <div class="col-lg-6">
-  <form class="form-horizontal">
-    <%= form_for @classified do |f| %>
-      <fieldset>
-        <legend>New Classified</legend>
-        <div class="form-group">
-          <%= f.label :subcategory, class: "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= f.text_field :subcategory, placeholder: "Subcategory" %>
+  <div class="well bs-component">
+    <form class="form-horizontal">
+      <%= form_for @classified do |f| %>
+        <fieldset>
+          <legend>New Classified</legend>
+          <div class="form-group">
+            <%= f.label :subcategory, class: "col-lg-2 control-label" %>
+            <div class="col-lg-10">
+              <%= f.text_field :subcategory, placeholder: "Subcategory" %>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.hidden_field :category, value: @category %>
-          <%= f.label :title, class: "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= f.text_field :title, placeholder: "Title" %>
+          <div class="form-group">
+            <%= f.hidden_field :category, value: @category %>
+            <%= f.label :title, class: "col-lg-2 control-label" %>
+            <div class="col-lg-10">
+              <%= f.text_field :title, placeholder: "Title" %>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :description, class: "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= f.text_area :description, placeholder: "Description", class: "form-control", rows: 3 %>
-            <span class="help-block">Descriptions can have a maximum length of 1000 characters.</span>
+          <div class="form-group">
+            <%= f.label :description, class: "col-lg-2 control-label" %>
+            <div class="col-lg-10">
+              <%= f.text_area :description, placeholder: "Description", class: "form-control", rows: 3 %>
+              <span class="help-block">Descriptions can have a maximum length of 1000 characters.</span>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :price, class: "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= f.number_field :price, min: 1, max: 1000 %>
-            <br>
-            <%= f.check_box :rate %>
-            <%= f.label :rate, "Check this if an hourly rate for a service" %>
+          <div class="form-group">
+            <%= f.label :price, class: "col-lg-2 control-label" %>
+            <div class="col-lg-10">
+              <%= f.number_field :price, min: 1, max: 1000 %>
+              <br>
+              <%= f.check_box :rate %>
+              <%= f.label :rate, "Check this if an hourly rate for a service" %>
+            </div>
           </div>
-        </div>
 
 
-        <div class="form-group">
-          <%= f.label :image, class: "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= f.file_field :image %>
+          <div class="form-group">
+            <%= f.label :image, class: "col-lg-2 control-label" %>
+            <div class="col-lg-10">
+              <%= f.file_field :image %>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <div class="col-lg-10 col-lg-offset-2">
-            <%= f.submit "Create Classified", class: "btn btn-primary" %>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit "Create Classified", class: "btn btn-primary" %>
+            </div>
           </div>
-        </div>
-      </fieldset>
-    </form>
-  <% end %>
-<%= link_to "Return to classifieds page", classifieds_path %>
+        </fieldset>
+      </form>
+    <% end %>
+  <%= link_to "Return to classifieds page", classifieds_path %>
+  </div>
 </div>

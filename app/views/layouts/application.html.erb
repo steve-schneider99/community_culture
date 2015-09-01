@@ -7,23 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" href="/">ComunityCulture</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/classifieds">Classifieds<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Points</a></li>
+        <li><a href="#">Earn Points</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Community <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -45,7 +38,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <!-- <%= image_tag current_user.avatar.url(:thumb) %> -->
+          <li><%= image_tag current_user.avatar.url(:mini) %></li>
           <li><%= link_to current_user.email, user_path(current_user) %></li>
           <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
@@ -53,11 +46,10 @@
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <li><%= link_to "Login", new_user_session_path %></li>
         <% end %>
-        <li><a href="/"></a></li>
       </ul>
     </div>
   </div>
-</nav>
+  </nav>
 
 
 

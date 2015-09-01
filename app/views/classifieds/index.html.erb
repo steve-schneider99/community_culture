@@ -19,9 +19,11 @@
   <div class="col-sm-3">
       <h5>SELLING</h5>
       <% if @selling_ads.any? %>
-        <ul>
+        <ul class="list-group">
         <% @selling_ads.each do |ad| %>
-          <li><%= link_to ad.title, classified_path(ad) %></li>
+            <li class="list-group-item">
+              <span class="badge">$<%= ad.price %></span>
+              <%= link_to ad.title, classified_path(ad) %></li>
         <% end %>
       <% else %>
         <p>"No selling classifieds added yet!"</p>
