@@ -10,8 +10,9 @@
 <p>Price: <%= @classified.price %> | Rate?: <%= @classified.rate %>
 
 <p><%= link_to "Edit this classified", edit_classified_path(@classified) %> |
-<%= link_to "Delete this classified", classified_path(@classified), data: {confirm: "Confirm Delete", method: "delete"} %></p>
+   <%= link_to "Delete this classified", classified_path(@classified), data: {confirm: "Confirm Delete", method: "delete"} %>
+</p>
 
 <p>
-  <%= link_to "Return to classifieds",  %>
+  <%= link_to "Return to classifieds", classifieds_path %>
 </p>

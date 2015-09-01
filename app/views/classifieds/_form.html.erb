@@ -1,5 +1,7 @@
+<%= render "layouts/errors", :object => @classified %>
+
 <%= form_for @classified do |f| %>
-  <% f.hidden_field :category, value: params[:format] %>
+<%= f.file_field :image %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

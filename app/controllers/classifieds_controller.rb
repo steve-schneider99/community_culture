@@ -3,7 +3,9 @@ class ClassifiedsController < ApplicationController
   before_action :find_classifieds, only: [:index]
 
   def index
-
+    @buying_ads = Classified.where(category: "buy")
+    @selling_ads = Classified.where(category: "sell")
+    @trading_ads = Classified.where(category: "trade")
   end
 
   def new
@@ -15,7 +17,7 @@ class ClassifiedsController < ApplicationController
     classified = Classified.new(classified_params)
     if classified.save
       flash[:notice] = "Classified has been created!"
-      redirect_to classifieds_path
+      redirect_to classified_path(classified)
     else
       flash[:alert] = "Error while submitting! Check values and try again."
       render :new
@@ -33,9 +35,10 @@ class ClassifiedsController < ApplicationController
   def update
     if @classified.update(classified_params)
       flash[:notice] = "Classified has been updated"
-      redirect_to classified_path(classified)
+      redirect_to classified_path(@classified)
     else
       flash[:alert] = "Error while submitting! Check values and try again."
+      render :edit
     end
   end
 
