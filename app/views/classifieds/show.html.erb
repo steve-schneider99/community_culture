@@ -1,23 +1,38 @@
-<h3><%= @classified.title %> | Sold by <%= @user.email %></h3>
+<div class="row">
+  <div class="col-sm-8">
+    <h3><%= @classified.title %></h3>
+    <h4>Sold by <%= @user.email %></h4>
 
-<% if @classified.image_file_name === nil %>
-  <%= image_tag "missing-image.png" %>
-<% else %>
-  <%= image_tag @classified.image.url(:medium) %>
-<% end %>
+    <% if @classified.image_file_name === nil %>
+      <%= image_tag "missing-image.png" %>
+    <% else %>
+      <%= image_tag @classified.image.url(:medium) %>
+    <% end %>
+
+    <p><strong>Description:</strong></p>
+    <p><%= @classified.description %></p>
+
+    <p>Category: <%= @classified.category %> | SubCategory: <%= @classified.subcategory %></p>
+
+    <p>Price: $<%= @classified.price %> | Rate?: <%= @classified.rate %>
+
+    <p><%= link_to "Edit this classified", edit_classified_path(@classified) %> |
+       <%= link_to "Delete this classified", classified_path(@classified), data: {confirm: "Confirm Delete", method: "delete"} %>
+    </p>
+
+    <p>
+      <%= link_to "Return to classifieds", classifieds_path %>
+    </p>
+
+  </div>
+  <div class="col-sm-4">
+    <h3>Other classifieds by <%= @user.email %></h3>
+    <ul>
+      <% @user.classifieds.each do |ad| %>
+        <li><%= link_to ad.title + " | " + ad.subcategory, classified_path(ad) %> </li>
+      <% end %>
+    </ul>
 
 
-<p><strong>Description:</strong></p>
-<p><%= @classified.description %></p>
-
-<p>Category: <%= @classified.category %> | SubCategory: <%= @classified.subcategory %></p>
-
-<p>Price: $<%= @classified.price %> | Rate?: <%= @classified.rate %>
-
-<p><%= link_to "Edit this classified", edit_classified_path(@classified) %> |
-   <%= link_to "Delete this classified", classified_path(@classified), data: {confirm: "Confirm Delete", method: "delete"} %>
-</p>
-
-<p>
-  <%= link_to "Return to classifieds", classifieds_path %>
-</p>
+  </div>
+</div>

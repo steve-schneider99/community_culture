@@ -15,12 +15,14 @@ category = ["buy", "sell", "trade"]
     password_confirmation: "password"
   )
 
-  classified = user.classifieds.create(
+  3.times do
+    classified = user.classifieds.create(
     category: category.sample,
     subcategory: Faker::Commerce.department,
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.sentence(3),
     price: Faker::Commerce.price
-  )
+    )
+end
 
 end
