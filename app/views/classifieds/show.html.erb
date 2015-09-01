@@ -1,5 +1,7 @@
 <h3><%= @classified.title %></h3>
 
+<%= image_tag @classified.image.url(:medium) %>
+
 <p><strong>Description:</strong></p>
 <p><%= @classified.description %></p>
 
@@ -9,3 +11,7 @@
 
 <p><%= link_to "Edit this classified", edit_classified_path(@classified) %> |
 <%= link_to "Delete this classified", classified_path(@classified), data: {confirm: "Confirm Delete", method: "delete"} %></p>
+
+<p>
+  <%= link_to "Return to classifieds",  %>
+</p>

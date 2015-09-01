@@ -47,7 +47,7 @@ class ClassifiedsController < ApplicationController
 private
 
   def classified_params
-    params.require(:classified).permit(:category, :subcategory, :price, :rate, :title, :description, :user_id)
+    params.require(:classified).permit(:category, :subcategory, :price, :rate, :title, :description, :user_id, :image)
   end
 
   def find_classified

@@ -1,15 +1,16 @@
 <h3>Classifieds home page</h3>
 <div class="row">
-  <div class="col-xl-4"
+  <div class="col-sm-4">
+    <h4>Add a new classified here</h4>
     <ul>
-    <li><%= link_to "SELL - Create a new classified", new_classified_path("sell") %></li>
-    <li><%= link_to "BUY - Create a new classified", new_classified_path("buy") %></li>
-    <li><%= link_to "TRADE - Create a new classified", new_classified_path("trade") %></li>
+      <li><%= link_to "SELL - Create a new classified", new_classified_path("sell") %></li>
+      <li><%= link_to "BUY - Create a new classified", new_classified_path("buy") %></li>
+      <li><%= link_to "TRADE - Create a new classified", new_classified_path("trade") %></li>
     </ul>
   </div>
-  <div class="col-xl-8">
-    <div class="pull-right">
+  <div class="col-sm-8">
       <% if @classifieds.any? %>
+      <h4>Listed Classifieds</h4>
         <ul>
         <% @classifieds.each do |ad| %>
           <li><%= link_to ad.title, classified_path(ad) %></li>
@@ -17,6 +18,5 @@
       <% else %>
         <p>"There have been no classifieds added yet!"</p>
       <% end %>
-    </div>
   </div>
 </div>
