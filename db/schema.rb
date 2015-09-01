@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150831233920) do
     t.string   "category"
     t.string   "subcategory"
     t.float    "price"
-    t.boolean  "rate"                   default: false
+    t.boolean  "rate",                   default: false
     t.string   "title"
     t.text     "description"
     t.string   "alternate_email"

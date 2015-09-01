@@ -9,11 +9,18 @@ category = ["buy", "sell", "trade"]
 
 
 20.times do
-  Classified.create(category: category.sample,
-                    subcategory: Faker::Commerce.department,
-                    title: Faker::Commerce.product_name,
-                    description: Faker::Lorem.sentence(3),
-                    price: Faker::Commerce.price,
-
+  user = User.create(
+    email: Faker::Internet.email,
+    password: "password",
+    password_confirmation: "password"
   )
+
+  classified = user.classifieds.create(
+    category: category.sample,
+    subcategory: Faker::Commerce.department,
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.sentence(3),
+    price: Faker::Commerce.price
+  )
+
 end

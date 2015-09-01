@@ -1,6 +1,11 @@
-<h3><%= @classified.title %></h3>
+<h3><%= @classified.title %> | Sold by <%= @user.email %></h3>
 
-<%= image_tag @classified.image.url(:medium) %>
+<% if @classified.image_file_name === nil %>
+  <%= image_tag "missing-image.png" %>
+<% else %>
+  <%= image_tag @classified.image.url(:medium) %>
+<% end %>
+
 
 <p><strong>Description:</strong></p>
 <p><%= @classified.description %></p>

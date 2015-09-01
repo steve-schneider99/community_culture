@@ -25,7 +25,7 @@ class ClassifiedsController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def edit
@@ -55,6 +55,7 @@ private
 
   def find_classified
     @classified = Classified.find(params[:id])
+    @user = User.find(@classified.user_id)
   end
 
   def find_classifieds
