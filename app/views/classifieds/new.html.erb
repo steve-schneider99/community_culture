@@ -1,26 +1,56 @@
-<h3>Create a new classified ad:</h3>
+<div class="col-lg-6">
+  <form class="form-horizontal">
+    <%= form_for @classified do |f| %>
+      <fieldset>
+        <legend>New Classified</legend>
+        <div class="form-group">
+          <%= f.label :subcategory, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :subcategory, placeholder: "Subcategory" %>
+          </div>
+        </div>
 
-<%= form_for @classified do |f| %>
-  <%= f.hidden_field :category, value: @category %>
+        <div class="form-group">
+          <%= f.hidden_field :category, value: @category %>
+          <%= f.label :title, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_field :title, placeholder: "Title" %>
+          </div>
+        </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-<br />
-  <%= f.label :description %>
-  <%= f.text_area :description, cols: 40, rows: 3 %>
-<br />
-  <%= f.label :price %>
-  <%= f.number_field :price, min: 1, max: 999999 %>
-<br />
-  <%= f.label :rate, "Rate, change later to only show if category is service" %>
-  <%= f.check_box :rate %>
+        <div class="form-group">
+          <%= f.label :description, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.text_area :description, placeholder: "Description", class: "form-control", rows: 3 %>
+            <span class="help-block">Descriptions can have a maximum length of 1000 characters.</span>
+          </div>
+        </div>
 
-  <%= f.label :subcategory %>
-  <%= f.text_field :subcategory %>
+        <div class="form-group">
+          <%= f.label :price, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.number_field :price, min: 1, max: 1000 %>
+            <br>
+            <%= f.check_box :rate %>
+            <%= f.label :rate, "Check this if an hourly rate for a service" %>
+          </div>
+        </div>
 
-  <%= f.file_field :image %>
 
-  <%= f.submit %>
-<% end %>
+        <div class="form-group">
+          <%= f.label :image, class: "col-lg-2 control-label" %>
+          <div class="col-lg-10">
+            <%= f.file_field :image %>
+          </div>
+        </div>
 
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit "Create Classified", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  <% end %>
 <%= link_to "Return to classifieds page", classifieds_path %>
+</div>
