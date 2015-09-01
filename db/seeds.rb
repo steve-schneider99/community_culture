@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+category = ["buy", "sell", "trade"]
+
+
+20.times do
+  Classified.create(category: category.sample,
+                    subcategory: Faker::Commerce.department,
+                    title: Faker::Commerce.product_name,
+                    description: Faker::Lorem.sentence(3),
+                    price: Faker::Commerce.price,
+
+  )
+end

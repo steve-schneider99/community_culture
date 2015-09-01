@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150831233920) do
     t.string   "category"
     t.string   "subcategory"
     t.float    "price"
-    t.boolean  "rate"
+    t.boolean  "rate"                   default: false
     t.string   "title"
     t.text     "description"
     t.string   "alternate_email"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150831233920) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "neighborhood"
     t.string   "username"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
