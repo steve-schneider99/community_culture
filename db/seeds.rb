@@ -22,8 +22,9 @@ category = ["buy", "sell", "trade"]
     subcategory: Faker::Commerce.department,
     title: Faker::Commerce.product_name,
     description: Faker::Lorem.sentence(3),
-    price: Faker::Commerce.price
+    price: Faker::Commerce.price,
+    neighborhood: user.neighborhood
     )
-end
+  end
 
 end
