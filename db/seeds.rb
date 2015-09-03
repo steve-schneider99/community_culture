@@ -12,7 +12,8 @@ category = ["buy", "sell", "trade"]
   user = User.create(
     email: Faker::Internet.email,
     password: "password",
-    password_confirmation: "password"
+    password_confirmation: "password",
+    neighborhood: Faker::Address.city
   )
 
   3.times do

@@ -3,11 +3,18 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.label :avatar, "Upload your profile picture!" %>
-  <%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.label :avatar, "Upload your profile picture!" %>
+    <%= f.file_field :avatar %>
+  </div>
 
   <div class="field">
-    <br>
+    <br />
+    <%= f.label :neighborhood %><br />
+    <%= f.text_field :neighborhood %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
