@@ -25,7 +25,7 @@ class ClassifiedsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def edit
