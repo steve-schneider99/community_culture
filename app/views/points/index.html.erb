@@ -1,0 +1,35 @@
+<h2>Earn points to spend in your community!</h2>
+<div class="row">
+  <div class="col-lg-4">
+    <h3 class="points-column">Volunteer</h3>
+  </div>
+  <div class="col-lg-4">
+    <h3 class="points-column">Donate</h3>
+  </div>
+  <div class="col-lg-4">
+    <h3 class="points-column">Company Outreach</h3>
+  </div>
+</div>
+<div class="row">
+  <% @points.each do |point| %>
+      <% if point.earning_method === "volunteer" %>
+        <div class="col-lg-4">
+          <ul>
+            <li><%= point.title %></li>
+          </ul>
+        </div>
+      <% elsif point.earning_method === "donate" %>
+        <div class="col-lg-4">
+          <ul>
+            <li><%= point.title %></li>
+          </ul>
+        </div>
+      <% elsif point.earning_method === "outreach" %>
+        <div class="col-lg-4">
+          <ul>
+            <li><%= point.title %> | <%= point.business_name %></li>
+          </ul>
+        </div>
+      <% end %>
+  <% end %>
+</div>

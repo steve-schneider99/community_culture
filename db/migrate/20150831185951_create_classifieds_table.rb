@@ -10,6 +10,7 @@ class CreateClassifiedsTable < ActiveRecord::Migration
       t.column :alternate_email, :string
       t.column :alternate_phone, :string
       t.column :user_id, :integer
+      t.column :neighborhood, :string
       t.timestamps
     end
   end

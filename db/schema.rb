@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903164009) do
+ActiveRecord::Schema.define(version: 20150904170324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 20150903164009) do
     t.string   "category"
     t.string   "subcategory"
     t.float    "price"
-    t.boolean  "rate",               default: false
+    t.boolean  "rate"
     t.string   "title"
     t.text     "description"
     t.string   "alternate_email"
     t.string   "alternate_phone"
     t.integer  "user_id"
+    t.string   "neighborhood"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -33,6 +34,19 @@ ActiveRecord::Schema.define(version: 20150903164009) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "point_value"
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.string  "business_type"
+    t.string  "business_name"
+    t.string  "business_address"
+    t.string  "business_phone"
+    t.string  "business_email"
+    t.string  "title"
+    t.text    "description"
+    t.integer "point_value"
+    t.boolean "rate?"
+    t.string  "earning_method"
   end
 
   create_table "users", force: :cascade do |t|
