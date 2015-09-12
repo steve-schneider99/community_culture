@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904170324) do
+ActiveRecord::Schema.define(version: 20150912061400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,49 @@ ActiveRecord::Schema.define(version: 20150904170324) do
     t.integer  "point_value"
   end
 
+  create_table "donations", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "category"
+    t.string   "points_value"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "business_type"
     t.string "business_name"
     t.string "business_address"
     t.string "business_phone"
     t.string "business_email"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.string   "description"
+    t.string   "location"
+    t.integer  "points_rate"
+    t.integer  "duration"
+    t.integer  "positions_needed"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_questions", force: :cascade do |t|
+    t.string  "question"
+    t.string  "option_a"
+    t.string  "option_b"
+    t.string  "option_c"
+    t.string  "user_answer"
+    t.integer "survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string  "title"
+    t.integer "organization_id"
   end
 
   create_table "users", force: :cascade do |t|
