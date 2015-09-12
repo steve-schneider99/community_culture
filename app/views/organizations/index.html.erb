@@ -11,23 +11,23 @@
   </div>
 </div>
 <div class="row">
-  <% @points.each do |point| %>
-      <% if point.earning_method === "volunteer" %>
+  <% @organizations.each do |organization| %>
+      <% if organization.earning_method === "volunteer" %>
         <div class="col-lg-4">
           <ul>
-            <li><%= point.title %></li>
+            <li><%= organization.title %></li>
           </ul>
         </div>
-      <% elsif point.earning_method === "donate" %>
+      <% elsif organization.earning_method === "donate" %>
         <div class="col-lg-4">
           <ul>
-            <li><%= point.title %></li>
+            <li><%= organization.title %></li>
           </ul>
         </div>
-      <% elsif point.earning_method === "outreach" %>
+      <% elsif organization.earning_method === "outreach" %>
         <div class="col-lg-4">
           <ul>
-            <li><%= point.title %> | <%= point.business_name %></li>
+            <li><%= organization.title %> | <%= organization.business_name %></li>
           </ul>
         </div>
       <% end %>

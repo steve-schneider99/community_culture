@@ -36,17 +36,12 @@ ActiveRecord::Schema.define(version: 20150904170324) do
     t.integer  "point_value"
   end
 
-  create_table "points", force: :cascade do |t|
-    t.string  "business_type"
-    t.string  "business_name"
-    t.string  "business_address"
-    t.string  "business_phone"
-    t.string  "business_email"
-    t.string  "title"
-    t.text    "description"
-    t.integer "point_value"
-    t.boolean "rate?"
-    t.string  "earning_method"
+  create_table "organizations", force: :cascade do |t|
+    t.string "business_type"
+    t.string "business_name"
+    t.string "business_address"
+    t.string "business_phone"
+    t.string "business_email"
   end
 
   create_table "users", force: :cascade do |t|
