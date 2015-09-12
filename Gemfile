@@ -18,6 +18,7 @@ group :production do
   gem 'bootstrap-sass'
   gem 'bootswatch-rails'
   gem 'bootstrap-form'
+  gem 'faker'
 end
 
 group :development, :test do
@@ -37,3 +38,5 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
 end
+
+gem 'rails_12factor', group: :production
