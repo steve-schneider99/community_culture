@@ -1,7 +1,7 @@
 class OrgSubcategories < ActiveRecord::Migration
   def change
     create_table :positions do |t|
-      t.string  :type
+      t.string  :position_type
       t.string  :title
       t.string  :description
       t.string  :location

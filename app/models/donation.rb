@@ -1,3 +1,3 @@
-class Donation < AcitveRecord::Base
+class Donation < ActiveRecord::Base
   belongs_to :organization
 end

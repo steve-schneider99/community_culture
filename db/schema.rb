@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150912061400) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.string   "type"
+    t.string   "position_type"
     t.string   "title"
     t.string   "description"
     t.string   "location"

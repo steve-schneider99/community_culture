@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 category = ["buy", "sell", "trade"]
+types = ["volunteer", "outreach"]
 
 
 20.times do
@@ -13,7 +14,8 @@ category = ["buy", "sell", "trade"]
     email: Faker::Internet.email,
     password: "password",
     password_confirmation: "password",
-    neighborhood: Faker::Address.city
+    neighborhood: Faker::Address.city,
+    points_balance: 1000
   )
 
   3.times do
@@ -28,41 +30,24 @@ category = ["buy", "sell", "trade"]
   end
 end
 
-# 10.times do
-#   volunteers = Point.create(
-#     earning_method: "volunteer",
-#     title: Faker::Name.title,
-#     description: Faker::Lorem.sentence(3),
-#     point_value: Faker::Commerce.price,
-#     rate?: true,
-#     business_name: Faker::Company.name,
-#     business_address: Faker::Address.street_address + ", " + Faker::Address.city + " " + Faker::Address.state,
-#     business_phone: Faker::PhoneNumber.phone_number,
-#     business_email: Faker::Internet.safe_email
-#   )
-#
-#   donates = Point.create(
-#     earning_method: "donate",
-#     title: Faker::Commerce.product_name,
-#     description: Faker::Lorem.sentence(3),
-#     point_value: Faker::Commerce.price,
-#     rate?: false,
-#     business_name: Faker::Company.name + " " + Faker::Company.suffix,
-#     business_address: Faker::Address.street_address + ", " + Faker::Address.city + " " + Faker::Address.state,
-#     business_phone: Faker::PhoneNumber.phone_number,
-#     business_email: Faker::Internet.safe_email
-#   )
-#
-#   outreaches = Point.create(
-#     earning_method: "outreach",
-#     title: "outreach volunteer",
-#     description: Faker::Lorem.sentence(3),
-#     point_value: Faker::Commerce.price,
-#     rate?: true,
-#     business_name: Faker::Company.name,
-#     business_address: Faker::Address.street_address + ", " + Faker::Address.city + " " + Faker::Address.state,
-#     business_phone: Faker::PhoneNumber.phone_number,
-#     business_email: Faker::Internet.safe_email
-#   )
+10.times do
+  positions = Position.create(
+    position_type: types.sample,
+    title: Faker::Name.title,
+    description: Faker::Lorem.sentence(3),
+    points_rate: Faker::Commerce.price,
+    duration: 5
+  )
 
-# end
+  donations = Donation.create(
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.sentence(3),
+    points_value: Faker::Commerce.price,
+    category: Faker::Commerce.department
+  )
+
+  surveys = Survey.create(
+    title: Faker::Lorem.sentence(1)
+  )
+
+end

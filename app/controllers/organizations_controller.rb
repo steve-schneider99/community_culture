@@ -1,6 +1,9 @@
 class OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
+    @positions = Position.all
+    @donations = Donation.all
+    @surveys = Survey.all
   end
 
   def show

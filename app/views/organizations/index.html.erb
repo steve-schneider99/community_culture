@@ -1,35 +1,35 @@
 <h2>Earn points to spend in your community!</h2>
 <div class="row">
   <div class="col-lg-4">
-    <h3 class="points-column">Volunteer</h3>
+    <h3 class="points-column">Volunteer/Outreach</h3>
   </div>
   <div class="col-lg-4">
     <h3 class="points-column">Donate</h3>
   </div>
   <div class="col-lg-4">
-    <h3 class="points-column">Company Outreach</h3>
+    <h3 class="points-column">Community Surveys</h3>
   </div>
 </div>
 <div class="row">
-  <% @organizations.each do |organization| %>
-      <% if organization.earning_method === "volunteer" %>
-        <div class="col-lg-4">
-          <ul>
-            <li><%= organization.title %></li>
-          </ul>
-        </div>
-      <% elsif organization.earning_method === "donate" %>
-        <div class="col-lg-4">
-          <ul>
-            <li><%= organization.title %></li>
-          </ul>
-        </div>
-      <% elsif organization.earning_method === "outreach" %>
-        <div class="col-lg-4">
-          <ul>
-            <li><%= organization.title %> | <%= organization.business_name %></li>
-          </ul>
-        </div>
+  <div class="col-lg-4">
+    <ul>
+      <% @positions.each do |position| %>
+        <li><%= position.title %></li>
       <% end %>
-  <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-4">
+    <ul>
+      <% @donations.each do |donation| %>
+        <li><%= donation.title %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-lg-4">
+    <ul>
+      <% @surveys.each do |survey| %>
+        <li><%= survey.title %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
